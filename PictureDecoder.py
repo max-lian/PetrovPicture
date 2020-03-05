@@ -13,7 +13,7 @@ mesagelen = pix[0, 0][0] % 10 * 100000000 + pix[0, 0][1] % 10 * 10000000 + pix[0
             + pix[0, 2][0] % 10 * 100 + pix[0, 2][1] % 10 * 10 + pix[0, 2][2] % 10
 for i in range(width):
     for j in range(height):
-        if(i * height + j <= mesagelen + 1 and not(i == 0 and (j == 0 or j == 1)) ):
+        if(i * height + j <= mesagelen + 1 and not(i == 0 and (j == 0 or j == 1 or j == 2)) ):
             r = pix[i, j][0]
             g = pix[i, j][1]
             b = pix[i, j][2]
