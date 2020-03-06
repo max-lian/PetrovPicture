@@ -10,4 +10,4 @@ for i in range(width):
         print(pix[i, j]),
     print ('\n')
 '''
-print(ord('a'))
+print(ord(''))

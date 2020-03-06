@@ -8,9 +8,10 @@ height = image.size[1]
 pix = image.load()
 f = open('Decodetext.txt', 'w')
 mesage = {}
-mesagelen = pix[0, 0][0] % 10 * 100000000 + pix[0, 0][1] % 10 * 10000000 + pix[0, 0][2] % 10 * 1000000 \
-            + pix[0, 1][0] % 10 * 100000 + pix[0, 1][1] % 10 * 10000 + pix[0, 1][2] % 10 * 1000 \
-            + pix[0, 2][0] % 10 * 100 + pix[0, 2][1] % 10 * 10 + pix[0, 2][2] % 10
+mesagelen = 0
+for i in range (0, 9):
+    mesagelen += (pix[0, i // 3][i % 3] % 10) * 10**(8 - i)
+
 print(mesagelen)
 letterindex = 0
 for i in range(width):

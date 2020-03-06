@@ -1,21 +1,15 @@
 import random
 from PIL import Image, ImageDraw
-pix = {}
-def encoding():
+
+def encoding(image, mesage):
     global pix
-    image = Image.open("port.png")
     draw = ImageDraw.Draw(image)
     width = image.size[0]
     height = image.size[1]
     print(width, height)
-
     pix = image.load()
-    f = open('test1million.txt', 'r')
-    mesage = f.read()
     print(len(mesage))
-    image.save("ans.png", "PNG")
     #interval = (width * height) // (len(mesage) ** 2)
-    f.close()
     letterindex = 0
     for i in range(width):
         for j in range(height):
@@ -34,6 +28,8 @@ def encoding():
     image.save("ans.png", "PNG")
     f.close()
 def encodePixel(i, j, letter):
+    if letter > 999:
+        raise Exception('Недопустимый символ')
     #print(chr(letter))
     r = pix[i, j][0]
     g = pix[i, j][1]
@@ -58,4 +54,10 @@ def calcpixel(color, colorletter):
     return color
 
 if __name__ == "__main__":
-    encoding()
+    image = Image.open("Petrovich.png")
+    f = open('Test.txt', 'r')
+    mesage = f.read()
+    encoding(image, mesage)
+    image.save("ans.png", "PNG")
+    f.close()
+
